@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -8,12 +9,33 @@ export function PlaceholderBox({
   className,
   label,
   ratio = "aspect-square",
+  src,
+  alt,
 }: {
   className?: string;
   label?: string;
   ratio?: string;
+  /** Path under /public, e.g. "/images/teams/tekken-banner.jpg". If omitted
+   *  or the file fails to load, an elegant placeholder renders instead. */
+  src?: string;
+  alt?: string;
 }) {
   const t = useTranslations("common");
+  const [failed, setFailed] = useState(false);
+
+  if (src && !failed) {
+    return (
+      <div className={cn(ratio, "relative overflow-hidden rounded-lg", className)}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- simple onError fallback is clearer here than next/image's error handling */}
+        <img
+          src={src}
+          alt={alt ?? label ?? ""}
+          className="h-full w-full object-cover"
+          onError={() => setFailed(true)}
+        />
+      </div>
+    );
+  }
 
   return (
     <div
