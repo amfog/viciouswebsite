@@ -1,0 +1,181 @@
+{
+  "nav": {
+    "home": "Home",
+    "teams": "Teams",
+    "news": "News",
+    "about": "About",
+    "partners": "Partners",
+    "contact": "Contact",
+    "cta": "Join The Vicious",
+    "leadership": "Leadership"
+  },
+  "hero": {
+    "eyebrow": "#FearTheVicious",
+    "slides": {
+      "esports": {
+        "title": "Multi-Title Esports",
+        "body": "From a PUBG Mobile clan to a powerhouse competing across ten titles — Tekken, CS2, Dota 2, PUBG Mobile, FC25, Rainbow Six Siege and more."
+      },
+      "media": {
+        "title": "Digital Media",
+        "body": "9.7M+ total views in 2024 and a growing footprint across Saudi Arabia, Kuwait, the UAE, Turkey, the US and Australia."
+      },
+      "services": {
+        "title": "Event Production",
+        "body": "Event management, live production, seminars and consultancy — delivered for partners like Lenovo, Tencent and King Abdulaziz University."
+      },
+      "traditional": {
+        "title": "Traditional Sports",
+        "body": "Expanding beyond esports into Jiu-Jitsu, Taekwondo, Judo, Swimming and more."
+      },
+      "next": {
+        "title": "What's Next in 2026",
+        "body": "An Abu Dhabi office, a new HQ & Studio, and a dedicated PUBG Mobile Women's Tournament — supported by Tencent."
+      }
+    },
+    "cta": "Meet The Roster",
+    "trustedBy": "Trusted By"
+  },
+  "whatWeDo": {
+    "eyebrow": "Our Services",
+    "title": "What We Do",
+    "items": {
+      "eventManagement": {
+        "title": "Event Management",
+        "body": "End-to-end planning and execution for tournaments and activations."
+      },
+      "eventProduction": {
+        "title": "Event Production",
+        "body": "Full broadcast production — casters, analysts and live coverage."
+      },
+      "seminars": {
+        "title": "Initiatives & Seminars",
+        "body": "Community education, from digital-age sports talks to accessibility partnerships."
+      },
+      "podcasts": {
+        "title": "Podcasts",
+        "body": "Long-form conversations with esports figures across the region."
+      },
+      "consultancy": {
+        "title": "Consultancy",
+        "body": "Strategic guidance for brands entering the esports space."
+      }
+    }
+  },
+  "ecosystem": {
+    "eyebrow": "Our Ecosystem",
+    "title": "Not Just An Esports Org",
+    "body": "The Vicious spans competitive rosters, digital media, live production, community initiatives and — soon — traditional sports."
+  },
+  "achievements": {
+    "eyebrow": "Track Record",
+    "title": "Club Achievements"
+  },
+  "teams": {
+    "title": "Active Rosters",
+    "subtitle": "Ten titles. One standard.",
+    "viewTeam": "View Team",
+    "roster": "Roster",
+    "coach": "Coach",
+    "achievements": "Achievements",
+    "recentMatches": "Recent Matches",
+    "gallery": "Gallery",
+    "sponsors": "Sponsors"
+  },
+  "player": {
+    "back": "Back to team",
+    "role": "Role",
+    "country": "Country",
+    "achievements": "Achievements",
+    "careerTimeline": "Career Timeline"
+  },
+  "news": {
+    "eyebrow": "Latest",
+    "title": "News & Updates",
+    "readMore": "Read on {source}"
+  },
+  "partners": {
+    "eyebrow": "Trusted By",
+    "title": "Partners & Sponsors",
+    "upcoming": "Upcoming Projects",
+    "jersey": {
+      "title": "Sponsor Appearance on Jersey",
+      "body": "Get your brand closer to the fans."
+    }
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "title": "The Vicious Family",
+    "body1": "We are a team of passionate Saudi men and women, united by our love for esports.",
+    "body2": "What began as a PUBG Mobile clan has evolved into a powerhouse organization, competing at the highest levels both locally and internationally.",
+    "body3": "In just three years, our journey transformed from a small gaming clan into a recognized esports force. Today, as part of The Vicious family, we strive for excellence across multiple titles, relentlessly pursuing victory and making our mark on the global stage.",
+    "vision": {
+      "title": "Vision",
+      "body": "Building a strong esports foundation in the Middle East to expand our fan base while strategically achieving our goals."
+    },
+    "mission": {
+      "title": "Mission",
+      "body": "To support Saudi Arabia's leadership in esports and Vision 2030's goal of making Riyadh the global esports capital."
+    },
+    "values": {
+      "title": "Values",
+      "list": [
+        "Integrity",
+        "Community",
+        "Team Work",
+        "Respect",
+        "Sustainability",
+        "Female Inclusion"
+      ]
+    },
+    "leadership": "Leadership Team",
+    "inclusion": {
+      "title": "Female Inclusion",
+      "body": "We are championing equality, diversity and inclusion through professional esports, player development and recruitment initiatives.",
+      "stat1": "65% of Vicious Esports staff are women",
+      "stat2": "Female players compete in 2 of 7 titles"
+    },
+    "next2026": {
+      "title": "What's Next in 2026",
+      "ewc": "Esports World Cup — booth, content creator connections, WC-edition team jersey",
+      "abudhabi": "Abu Dhabi office, in partnership with Twofour54 and AD Gaming",
+      "hq": "The Vicious HQ & Studio — coming soon",
+      "store": "Website & Store — coming soon",
+      "womensTournament": "PUBG Mobile Women's Tournament, supported by Tencent"
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "body": "For partnerships, sponsorships and general inquiries.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message"
+    },
+    "email": "Bd@TheVicious.net"
+  },
+  "footer": {
+    "tagline": "#FearTheVicious",
+    "newsletter": {
+      "title": "Stay Updated",
+      "placeholder": "Your email",
+      "submit": "Subscribe"
+    },
+    "quickLinks": "Quick Links",
+    "follow": "Follow Us",
+    "rights": "All rights reserved.",
+    "builtBy": "Built by Nexaro Tech"
+  },
+  "common": {
+    "comingSoon": "Coming Soon",
+    "placeholderImage": "Image coming soon"
+  },
+  "leadership": {
+    "eyebrow": "Leadership",
+    "title": "Leadership Team",
+    "subtitle": "The people steering The Vicious across esports, strategy and operations.",
+    "affiliations": "Affiliations",
+    "viewAll": "View full leadership team"
+  }
+}

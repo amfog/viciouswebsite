@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/*
+  Design tokens for The Vicious.
+  Palette: near-black void + signature neon yellow-lime (the brand's
+  actual accent, from the logo/marque) + off-white, with a deep red
+  used sparingly as a secondary/callout tone — never as the primary CTA
+  color, to keep the signature volt-on-black identity legible.
+*/
+:root {
+  --color-void: #0a0a0b;
+  --color-ink: #141416;
+  --color-bone: #f4f4ef;
+  --color-volt: #d7f52c;
+  --color-ember: #c8102e;
+  --color-steel: #6f6f76;
+
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-display-ar: "Cairo", "IBM Plex Sans Arabic", sans-serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --font-body-ar: "IBM Plex Sans Arabic", "Inter", sans-serif;
+}
+
+@theme inline {
+  --color-void: var(--color-void);
+  --color-ink: var(--color-ink);
+  --color-bone: var(--color-bone);
+  --color-volt: var(--color-volt);
+  --color-ember: var(--color-ember);
+  --color-steel: var(--color-steel);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+}
+
+[dir="rtl"] body {
+  font-family: var(--font-body-ar);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+[dir="rtl"] .font-display {
+  font-family: var(--font-display-ar);
+}
+
+::selection {
+  background: var(--color-volt);
+  color: var(--color-void);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+[dir="rtl"] .animate-\[marquee_28s_linear_infinite\] {
+  animation-direction: reverse;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Hero ambient logo (see components/HeroLogoBackground.tsx) ---- */
+
+.logo-wings {
+  opacity: 0.06;
+  filter: brightness(1.1);
+}
+
+.eyes-breathe {
+  opacity: 0.14;
+  filter: drop-shadow(0 0 6px rgba(215, 245, 44, 0.3)) brightness(0.95);
+}
+
+.eyes-pulse {
+  opacity: 0;
+  filter: drop-shadow(0 0 30px rgba(215, 245, 44, 0.9));
+}
+
+.scan-sweep {
+  opacity: 0;
+  transform: translateX(-60%);
+  background: linear-gradient(
+    100deg,
+    transparent 42%,
+    rgba(215, 245, 44, 0.55) 50%,
+    transparent 58%
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .eyes-breathe {
+    animation: eyeBreathe 5.4s ease-in-out infinite;
+  }
+  .eyes-flicker {
+    animation: eyeFlicker 7.3s linear infinite;
+  }
+  .eyes-pulse {
+    animation: eyePulse 13s ease-in-out infinite;
+  }
+  .scan-sweep {
+    animation: scanSweep 19s ease-in-out infinite;
+  }
+}
+
+@keyframes eyeBreathe {
+  0%,
+  100% {
+    opacity: 0.14;
+    filter: drop-shadow(0 0 6px rgba(215, 245, 44, 0.3)) brightness(0.95);
+  }
+  50% {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 16px rgba(215, 245, 44, 0.6)) brightness(1.2);
+  }
+}
+
+@keyframes eyeFlicker {
+  0%,
+  90%,
+  100% {
+    opacity: 1;
+  }
+  91% {
+    opacity: 0.55;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.7;
+  }
+  94% {
+    opacity: 1;
+  }
+}
+
+@keyframes eyePulse {
+  0%,
+  95%,
+  100% {
+    opacity: 0;
+  }
+  96% {
+    opacity: 0.55;
+  }
+  97.5% {
+    opacity: 0.65;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+
+@keyframes scanSweep {
+  0%,
+  82% {
+    opacity: 0;
+    transform: translateX(-60%);
+  }
+  84% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+    transform: translateX(60%);
+  }
+  92%,
+  100% {
+    opacity: 0;
+    transform: translateX(60%);
+  }
+}
