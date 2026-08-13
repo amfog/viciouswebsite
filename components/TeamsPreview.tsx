@@ -4,9 +4,9 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { MotionReveal } from "./MotionReveal";
 import { PlaceholderBox } from "./PlaceholderBox";
-import { teams } from "@/data/teams";
+import type { Team } from "@/types";
 
-export function TeamsPreview() {
+export function TeamsPreview({ teams }: { teams: Team[] }) {
   const t = useTranslations("teams");
 
   return (

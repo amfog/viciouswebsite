@@ -5,13 +5,13 @@ import { Footer } from "@/components/Footer";
 import { Link } from "@/i18n/navigation";
 import { PlaceholderBox } from "@/components/PlaceholderBox";
 import { MotionReveal } from "@/components/MotionReveal";
-import { teams } from "@/data/teams";
-import { getPlayersByTeam } from "@/data/players";
+import { getAllTeams, getTeamBySlug, getPlayersByTeam } from "@/services/roster";
 import { partners, sponsors } from "@/data/partners";
 import type { Locale } from "@/types";
 import { Trophy } from "lucide-react";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const teams = await getAllTeams();
   return teams.map((team) => ({ slug: team.slug }));
 }
 
@@ -21,12 +21,12 @@ export default async function TeamDetailPage({
   params: Promise<{ slug: string; locale: string }>;
 }) {
   const { slug } = await params;
-  const team = teams.find((t) => t.slug === slug);
+  const team = await getTeamBySlug(slug);
   if (!team) notFound();
 
   const t = await getTranslations("teams");
   const locale = (await getLocale()) as Locale;
-  const roster = getPlayersByTeam(team.id);
+  const roster = await getPlayersByTeam(team.id);
 
   return (
     <>
@@ -40,7 +40,12 @@ export default async function TeamDetailPage({
               <p className="text-xs uppercase tracking-widest text-steel">{team.game}</p>
               <h1 className="font-display text-4xl font-bold md:text-6xl">{team.name}</h1>
             </div>
-            <PlaceholderBox ratio="aspect-square" className="h-20 w-20" label="Logo" />
+            <PlaceholderBox
+              ratio="aspect-square"
+              className="h-20 w-20"
+              label="Logo"
+              src={team.logoUrl}
+            />
           </div>
 
           {team.achievements && team.achievements.length > 0 && (
@@ -73,7 +78,12 @@ export default async function TeamDetailPage({
                   href={`/players/${player.slug}`}
                   className="group block overflow-hidden rounded-xl border border-white/10 bg-ink transition hover:border-volt/40"
                 >
-                  <PlaceholderBox ratio="aspect-[3/4]" className="rounded-none border-0" label={player.nickname} />
+                  <PlaceholderBox
+                    ratio="aspect-[3/4]"
+                    className="rounded-none border-0"
+                    label={player.nickname}
+                    src={player.photoUrl}
+                  />
                   <div className="p-3">
                     <p className="font-display text-sm font-semibold transition group-hover:text-volt">
                       {player.nickname}

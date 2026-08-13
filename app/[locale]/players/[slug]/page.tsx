@@ -4,12 +4,12 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Link } from "@/i18n/navigation";
 import { PlaceholderBox } from "@/components/PlaceholderBox";
-import { players } from "@/data/players";
-import { teams } from "@/data/teams";
+import { getAllPlayers, getPlayerBySlug, getAllTeams } from "@/services/roster";
 import type { Locale } from "@/types";
 import { ArrowLeft } from "lucide-react";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const players = await getAllPlayers();
   return players.map((p) => ({ slug: p.slug }));
 }
 
@@ -19,9 +19,10 @@ export default async function PlayerDetailPage({
   params: Promise<{ slug: string; locale: string }>;
 }) {
   const { slug } = await params;
-  const player = players.find((p) => p.slug === slug);
+  const player = await getPlayerBySlug(slug);
   if (!player) notFound();
 
+  const teams = await getAllTeams();
   const team = teams.find((t) => t.id === player.teamId);
   const t = await getTranslations("player");
   const locale = (await getLocale()) as Locale;
@@ -41,7 +42,7 @@ export default async function PlayerDetailPage({
         )}
 
         <div className="mt-6 grid gap-8 md:grid-cols-[280px_1fr]">
-          <PlaceholderBox ratio="aspect-[3/4]" label={player.nickname} />
+          <PlaceholderBox ratio="aspect-[3/4]" label={player.nickname} src={player.photoUrl} />
 
           <div>
             <h1 className="font-display text-4xl font-bold md:text-6xl">{player.nickname}</h1>

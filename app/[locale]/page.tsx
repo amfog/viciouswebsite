@@ -8,8 +8,11 @@ import { TeamsPreview } from "@/components/TeamsPreview";
 import { NewsGrid } from "@/components/NewsGrid";
 import { PartnersMarquee } from "@/components/PartnersMarquee";
 import { CTASection } from "@/components/CTASection";
+import { getAllTeams } from "@/services/roster";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const teams = await getAllTeams();
+
   return (
     <>
       <Header />
@@ -18,7 +21,7 @@ export default function HomePage() {
         <WhatWeDo />
         <Ecosystem />
         <AchievementsStrip />
-        <TeamsPreview />
+        <TeamsPreview teams={teams} />
         <NewsGrid />
         <PartnersMarquee />
         <CTASection />

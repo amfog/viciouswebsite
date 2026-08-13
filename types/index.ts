@@ -38,6 +38,9 @@ export interface Player {
   age?: number;
   teamId: string;
   photoPlaceholder: true;
+  /** Real photo URL (Supabase Storage), set once Vicious OS supplies one.
+   *  Falls through to the placeholder box when absent. */
+  photoUrl?: string;
   socials?: SocialLinks;
   achievements?: Achievement[];
   bio?: LocalizedText;
@@ -54,6 +57,8 @@ export interface Team {
   coach?: string;
   achievements?: Achievement[];
   status: "active" | "upcoming";
+  /** Real logo URL (Supabase Storage), set once Vicious OS supplies one. */
+  logoUrl?: string;
 }
 
 export interface NewsItem {

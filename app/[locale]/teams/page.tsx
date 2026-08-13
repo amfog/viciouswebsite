@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Link } from "@/i18n/navigation";
 import { PlaceholderBox } from "@/components/PlaceholderBox";
 import { MotionReveal } from "@/components/MotionReveal";
-import { teams } from "@/data/teams";
+import { getAllTeams } from "@/services/roster";
 
 export async function generateMetadata() {
   const t = await getTranslations("teams");
@@ -13,6 +13,7 @@ export async function generateMetadata() {
 
 export default async function TeamsPage() {
   const t = await getTranslations("teams");
+  const teams = await getAllTeams();
 
   return (
     <>
@@ -28,7 +29,12 @@ export default async function TeamsPage() {
                 href={`/teams/${team.slug}`}
                 className="group block overflow-hidden rounded-2xl border border-white/10 bg-ink transition hover:border-volt/40"
               >
-                <PlaceholderBox ratio="aspect-[4/3]" className="rounded-none border-0" label={team.name} />
+                <PlaceholderBox
+                  ratio="aspect-[4/3]"
+                  className="rounded-none border-0"
+                  label={team.name}
+                  src={team.logoUrl}
+                />
                 <div className="p-4">
                   <p className="text-xs uppercase tracking-widest text-steel">{team.game}</p>
                   <p className="mt-1 font-display text-lg font-semibold transition group-hover:text-volt">
